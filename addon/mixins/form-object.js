@@ -31,7 +31,7 @@ export default Ember.Mixin.create({
     this.validations = _.cloneDeep(this.validations || {});
     this.properties = _.cloneDeep(this.properties || {});
 
-    this.isSubmiting = false;
+    this.isSubmitting = false;
     this.isDirty = false;
     this.isLoaded = false;
 
@@ -75,7 +75,7 @@ export default Ember.Mixin.create({
     this.setAllPropertiesDirtyFlag(true);
 
     return this.validate().then(runSafe(this, () => {
-      this.set('isSubmiting', true);
+      this.set('isSubmitting', true);
       return this.beforeSubmit(...arguments);
     })).then(runSafe(this, () => {
       return this.submit(...arguments);
@@ -85,7 +85,7 @@ export default Ember.Mixin.create({
       Ember.Logger.warn(e);
       throw e;
     }).finally(runSafe(this, () => {
-      this.set('isSubmiting', false);
+      this.set('isSubmitting', false);
     }));
   },
 

@@ -179,7 +179,7 @@ export default Ember.ObjectProxy.extend(EmberValidations, FormObjectMixin, {
   _modelPropertyDidChange(model, propertyName) {
     const areDifferent = depromisifyObject(model.get(propertyName)) !== depromisifyObject(this.get(propertyName));
     if (areDifferent) {
-      if (this.get('isSubmiting') || !this.get('isDirty')) {
+      if (this.get('isSubmitting') || !this.get('isDirty')) {
         this.set(propertyName, model.get(propertyName));
       } else {
         this.modelPropertyConflictDidOccur(model, propertyName);
