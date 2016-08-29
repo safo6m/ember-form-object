@@ -27,7 +27,7 @@ function areTwoValuesEqual(a, b) {
 
   if (isArray(a) && isArray(b) && a.length === b.length) {
     for (let i = 0; i < a.length; i += 1) {
-      if (a[i] !== b[i]) {
+      if (!b.contains(a[i])) {
         return false;
       }
     }
